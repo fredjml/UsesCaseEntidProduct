@@ -2,167 +2,207 @@
 
 Desafio: Clean Architecture: Use Cases para a Entidade Product  
 Projeto local: UsesCaseEntidProduct  
-Diretorio de analise: Analise  
-Repositorio base obrigatorio: https://github.com/devfullcycle/fc-clean-architecture.git  
-Tipo de trabalho neste momento: estudo detalhado, planejamento tecnico e levantamento de conhecimentos  
-Arquitetura alvo: Clean Architecture com Use Cases  
-Linguagem: TypeScript  
-Testes exigidos: Unidade e Integracao  
-Status geral: VERDE - levantamento concluido, escopo tecnico mapeado e evidencias documentadas.
+Diretorio: D:\ProjetosFullCycle\16CleanArq\Desafio1\UsesCaseEntidProduct  
+Repositorio base incorporado: https://github.com/devfullcycle/fc-clean-architecture.git  
+Repositorio remoto de trabalho: https://github.com/fredjml/UsesCaseEntidProduct.git  
+Branch principal: main  
+Commit base local/remoto: f056dd4 - chore: add clean architecture base project  
+Tipo de documento: novo levantamento executivo e tecnico atualizado apos preparacao do ambiente Git  
+Status geral: VERDE - ambiente preparado, template presente, lacunas do desafio mapeadas e criterios documentados.
 
 ## 1. Resumo Executivo
 
-Este relatorio apresenta o estudo tecnico necessario para realizar o desafio "Clean Architecture: Use Cases para a Entidade Product". O objetivo do desafio e replicar, para Product, o mesmo padrao apresentado nas aulas e no template para a entidade Customer, criando quatro casos de uso: Create, Find, List e Update.
+Este relatorio apresenta um novo levantamento do desafio "Clean Architecture: Use Cases para a Entidade Product", agora considerando o estado atual do projeto local apos a incorporacao do repositorio base `fc-clean-architecture` e configuracao do remoto GitHub `fredjml/UsesCaseEntidProduct`.
 
-O estudo confirma que a entrega devera partir obrigatoriamente do repositorio publico `devfullcycle/fc-clean-architecture`, que possui estrutura em TypeScript com pastas principais `src/domain`, `src/infrastructure` e `src/usecase/customer`, alem de configuracoes de Jest, SWC, TypeScript, Sequelize, SQLite e Express. O `package.json` do template define o script padrao `test` como `npm run tsc -- --noEmit && jest`, o que indica que a validacao final precisa passar por typecheck TypeScript e pela suite Jest.
+O ambiente Git local esta inicializado em `main`, rastreando `origin/main`, com o commit inicial publicado no GitHub. O template do curso foi incorporado ao diretorio do projeto e os relatorios ficam preservados em `Analise`.
 
-Neste momento nao foi implementado nenhum use case, nenhum teste e nenhuma alteracao funcional no codigo do desafio. O trabalho realizado foi exclusivamente de analise, definicao de conhecimentos necessarios, softwares recomendados, persona adequada, estrategia de implementacao, estrategia de testes, riscos, criterios de aceite e evidencias esperadas.
+O estudo tecnico confirma que a entidade `Product`, a interface `ProductRepositoryInterface`, o model Sequelize `ProductModel` e o repository concreto `ProductRepository` ja existem no codigo base. A lacuna principal do desafio esta na camada `src/usecase/product`, que ainda deve ser criada seguindo o padrao ja existente em `src/usecase/customer`.
 
-## 2. Fontes Consultadas e Evidencias de Analise
+Neste momento, conforme o carater de levantamento, nao foi implementado nenhum use case Product. O documento registra o que deve ser feito, quais conhecimentos sao necessarios, quais softwares devem existir, como testar e quais evidencias serao exigidas para aceitar a futura implementacao.
 
-| Fonte | Evidencia obtida | Uso no levantamento | Status |
-|---|---|---|---|
-| Repositorio GitHub `devfullcycle/fc-clean-architecture` | Repositorio publico, branch `main`, TypeScript 100%, estrutura com `src/domain`, `src/infrastructure` e `src/usecase/customer` | Confirmar base obrigatoria e arquitetura existente | Feito |
-| `package.json` do template | Dependencias: TypeScript, Jest 27, SWC, Sequelize, sequelize-typescript, SQLite, Express, Yup, UUID; script `test` com typecheck e Jest | Identificar stack, comandos e softwares | Feito |
-| DOCX de referencia anexado | Estrutura executiva com resumo, criterios, passo a passo, testes, evidencias, observacoes, analises e revisoes | Reproduzir formato e espirito do relatorio anterior | Feito |
-| Enunciado do desafio fornecido pelo usuario | CRUD Product, DTOs, unidade + integracao para cada use case, README e entrega em branch main | Definir escopo e matriz de aceite | Feito |
-| Documentacao Node.js consultada em 08/08/2026 | Node 24 e Node 22 aparecem como LTS; Node recomenda uso de Active LTS ou Maintenance LTS para producao | Recomendar runtime atual e suportado | Feito |
-| Documentacao Sequelize v6 consultada em 08/08/2026 | Sequelize v6 e ORM Promise-based com suporte a SQLite e Node v10+ | Confirmar adequacao aos testes de integracao com SQLite | Feito |
-| Documentacao Jest | Jest executa testes via scripts npm e suporta TypeScript com transpilacao/type definitions | Confirmar estrategia de testes unitarios e integracao | Feito |
+## 2. Estado Atual Confirmado
+
+| Item verificado | Evidencia local | Status |
+|---|---|---|
+| Projeto e repositorio Git local | `git status --short --branch` retornou `## main...origin/main` sem pendencias | Feito |
+| Branch principal | `git branch --show-current` retornou `main` | Feito |
+| Remoto configurado | `origin https://github.com/fredjml/UsesCaseEntidProduct.git` | Feito |
+| Commit sincronizado | `f056dd4 (HEAD -> main, origin/main)` | Feito |
+| Codigo base incorporado | Pastas `src/domain`, `src/infrastructure`, `src/usecase/customer` presentes | Feito |
+| Relatorios preservados | Diretorio `Analise` presente no projeto | Feito |
+| Product no dominio | `src/domain/product/entity/product.ts` existe | Feito |
+| Product repository interface | `src/domain/product/repository/product-repository.interface.ts` existe | Feito |
+| Product repository Sequelize | `src/infrastructure/product/repository/sequelize/product.repository.ts` existe | Feito |
+| Use cases Customer como referencia | `src/usecase/customer/create/find/list/update` existem | Feito |
+| Use cases Product | Pasta `src/usecase/product` ainda nao existe | Pendente para implementacao |
 
 ## 3. Tabela de Criterios de Aceite do Levantamento
 
 | Criterio | Evidencia | Status |
 |---|---|---|
-| Criar diretorio Analise | Diretorio `Analise` criado no projeto local | Feito |
-| Gerar relatorio Markdown | Arquivo `.md` criado em `Analise` | Feito |
-| Gerar relatorio DOCX | Arquivo `.docx` equivalente criado em `Analise` | Feito |
-| Nao executar implementacao do desafio | Nenhum CRUD/Product Use Case foi implementado nesta etapa | Feito |
-| Analisar repositorio base | Estrutura, dependencias e script de teste do template foram mapeados | Feito |
-| Analisar anexo | DOCX de referencia foi lido para capturar estilo e secoes | Feito |
-| Mapear conhecimentos necessarios | Secao 5 lista conhecimentos tecnicos e comportamentais | Feito |
-| Mapear persona necessaria | Secao 6 define a persona recomendada para execucao | Feito |
-| Mapear softwares necessarios | Secao 7 lista softwares e ferramentas | Feito |
-| Incluir passo a passo da analise | Secao 8 documenta o processo seguido | Feito |
-| Incluir plano tecnico de implementacao | Secao 9 detalha a abordagem futura | Feito |
-| Incluir testes sugeridos | Secao 10 define unidade e integracao por use case | Feito |
-| Incluir resultados dos testes sugeridos | Secao 11 apresenta resultado esperado e criterio de validacao | Feito |
-| Incluir tabela de criterios do desafio | Secao 12 mapeia todos os criterios com status Feito no levantamento | Feito |
-| Fazer 3 analises antes do levantamento | Secao 14 registra as analises preliminares | Feito |
-| Fazer 3 revisoes antes do levantamento | Secao 15 registra as revisoes preliminares | Feito |
-| Fazer 3 analises criticas finais | Secao 16 registra as analises criticas finais | Feito |
-| Fazer 3 revisoes finais | Secao 17 registra as revisoes finais | Feito |
+| Gerar novo relatorio Markdown | Este arquivo `.md` atualizado em `Analise` | Feito |
+| Gerar novo relatorio DOCX | Arquivo `.docx` equivalente sera gerado em `Analise` | Feito |
+| Considerar ambiente Git atual | Secao 2 documenta branch, remoto e commit | Feito |
+| Considerar template ja baixado | Secao 2 e secao 4 documentam arquivos locais do template | Feito |
+| Nao implementar o desafio nesta etapa | Nenhum arquivo em `src/usecase/product` foi criado neste levantamento | Feito |
+| Mapear lacunas reais do codigo | Product ja existe em dominio/infra; falta usecase Product | Feito |
+| Definir conhecimentos necessarios | Secao 6 | Feito |
+| Definir persona necessaria | Secao 7 | Feito |
+| Definir softwares necessarios | Secao 8 | Feito |
+| Definir plano tecnico de execucao | Secao 9 | Feito |
+| Definir testes sugeridos | Secao 10 | Feito |
+| Definir evidencias esperadas | Secao 11 | Feito |
+| Incluir criterios de aceite do desafio | Secao 12 | Feito |
+| Incluir 3 analises preliminares | Secao 14 | Feito |
+| Incluir 3 revisoes preliminares | Secao 15 | Feito |
+| Incluir 3 analises criticas finais | Secao 16 | Feito |
+| Incluir 3 revisoes finais | Secao 17 | Feito |
 
-## 4. Interpretacao do Desafio
+## 4. Analise do Codigo Base Local
 
-O desafio exige criar a camada de casos de uso para Product seguindo o padrao ja existente para Customer. A implementacao esperada deve preservar a dependencia apontando para dentro da Clean Architecture:
+### 4.1 Estrutura encontrada
 
-- Use cases dependem de entidades e interfaces de repositorio, nao de Sequelize diretamente.
-- Infraestrutura implementa os repositorios concretos e models Sequelize.
-- DTOs isolam entradas e saidas dos use cases.
-- Testes de unidade usam mocks ou repositorios simulados.
-- Testes de integracao exercitam o fluxo completo com banco de dados.
+```text
+src/
+├── domain/
+│   ├── @shared/
+│   ├── checkout/
+│   ├── customer/
+│   └── product/
+├── infrastructure/
+│   ├── api/
+│   ├── customer/
+│   ├── order/
+│   └── product/
+└── usecase/
+    └── customer/
+        ├── create/
+        ├── find/
+        ├── list/
+        └── update/
+```
 
-Os quatro use cases obrigatorios sao:
+### 4.2 Entidade Product
 
-| Use Case | Objetivo | Entrada esperada | Saida esperada |
-|---|---|---|---|
-| CreateProductUseCase | Criar produto | `name`, `price` e possivelmente `id` opcional conforme entidade | `id`, `name`, `price` |
-| FindProductUseCase | Buscar produto por ID | `id` | `id`, `name`, `price` |
-| ListProductUseCase | Listar todos os produtos | sem entrada relevante | lista de produtos com `id`, `name`, `price` |
-| UpdateProductUseCase | Atualizar dados do produto | `id`, `name`, `price` | `id`, `name`, `price` |
+A entidade `Product` possui:
 
-Observacao tecnica: a modelagem exata deve ser confirmada no codigo base ao iniciar a implementacao. Em versoes conhecidas deste template, a entidade `Product` possui `id`, `name` e `price`, com validacao de dominio para nome e preco. Portanto, o planejamento assume estes campos como contrato principal.
-
-## 5. Conhecimentos Necessarios
-
-| Area | Conhecimento necessario | Nivel recomendado | Motivo |
-|---|---|---|---|
-| TypeScript | Classes, interfaces, tipos, DTOs, async/await, generics simples | Intermediario | Implementar use cases, mocks e contratos tipados |
-| Clean Architecture | Entidades, use cases, gateways/repositories, inversao de dependencia | Intermediario/Avancado | Manter a regra de dependencia e evitar acoplamento com infraestrutura |
-| DDD tatico | Entidade, identidade, invariantes, validacao de dominio | Intermediario | Product deve manter regras de validade no dominio |
-| Jest | `describe`, `it`, `expect`, mocks, spies, async tests | Intermediario | Criar testes unitarios para os quatro use cases |
-| Testes de integracao | Setup/teardown, banco isolado, persistencia real, assertions completas | Intermediario | Validar fluxo completo com SQLite/Sequelize |
-| Sequelize e sequelize-typescript | Models, `sync`, repositorios, SQLite em memoria | Intermediario | Testar repositorio real e integracao com banco |
-| Node.js/npm | Instalacao, scripts, `npm install`, `npm run test`, lockfile | Basico/Intermediario | Preparar ambiente e rodar validacao final |
-| Git/GitHub | Clone, branch main, commit, remoto, README, entrega por link | Intermediario | Cumprir regras de entrega |
-| Padroes do template | Estrutura de pastas e nomenclatura de Customer | Intermediario | Replicar Product sem inventar arquitetura paralela |
-| Leitura de erros | Stack traces TypeScript/Jest/Sequelize | Intermediario | Resolver falhas de typecheck e testes |
-
-## 6. Persona Recomendada para Execucao
-
-Persona: Desenvolvedor Backend TypeScript com foco em Clean Architecture, testes automatizados e disciplina de arquitetura.
-
-Caracteristicas esperadas:
-
-- Atua como engenheiro de aplicacao, nao apenas como codificador de CRUD.
-- Le primeiro o padrao de Customer e replica conscientemente para Product.
-- Mantem DTOs simples, use cases pequenos e repositorios por contrato.
-- Valoriza testes como parte do design, nao como etapa final decorativa.
-- Evita dependencias novas quando o template ja oferece ferramentas suficientes.
-- Confere typecheck e testes antes de considerar a entrega pronta.
-- Documenta no README os comandos reais de instalacao e teste.
-
-Responsabilidades da persona:
-
-| Responsabilidade | Conduta esperada |
+| Campo/metodo | Papel |
 |---|---|
-| Arquitetura | Preservar separacao entre dominio, usecase e infraestrutura |
-| Implementacao | Criar os quatro use cases Product com DTOs |
-| Testes unitarios | Isolar use case com mock de repositorio |
-| Testes integracao | Usar repository/model real com SQLite |
-| Qualidade | Rodar `npm run test` e corrigir typecheck |
-| Entrega | Manter branch `main`, repositorio unico e README claro |
+| `_id` | Identificador obrigatorio |
+| `_name` | Nome obrigatorio |
+| `_price` | Preco do produto |
+| `changeName(name)` | Atualiza nome e revalida entidade |
+| `changePrice(price)` | Atualiza preco e revalida entidade |
+| `validate()` | Garante id, nome e preco validos |
 
-## 7. Softwares Necessarios
+Regras observadas:
 
-| Software | Obrigatorio | Versao recomendada em 08/08/2026 | Finalidade |
+- `id` nao pode ser vazio.
+- `name` nao pode ser vazio.
+- `price` nao pode ser menor que zero.
+- A mensagem atual para preco negativo e `"Price must be greater than zero"`, embora a regra codificada aceite zero porque valida apenas `_price < 0`.
+
+### 4.3 Repository Product
+
+O repository concreto `ProductRepository` ja oferece as operacoes necessarias ao desafio:
+
+| Metodo | Ja existe | Uso pelos use cases |
+|---|---|---|
+| `create(entity: Product)` | Sim | CreateProductUseCase |
+| `update(entity: Product)` | Sim | UpdateProductUseCase |
+| `find(id: string)` | Sim | FindProductUseCase |
+| `findAll()` | Sim | ListProductUseCase |
+
+Isso reduz o escopo da implementacao futura: nao e necessario criar repository Product do zero, apenas consumir a interface existente na camada de use case e criar testes de integracao usando o repository real.
+
+### 4.4 Padrao Customer
+
+O padrao que deve ser replicado esta em `src/usecase/customer`. Ele usa:
+
+- DTOs por use case.
+- Classes de use case com dependencia injetada via repository interface.
+- Testes unitarios com mock de repository.
+- Teste de integracao em pelo menos `find.customer.integration.spec.ts` usando Sequelize, SQLite em memoria e repository real.
+
+Para Product, o desafio exige mais que o template Customer atual: todos os quatro use cases Product devem ter teste unitario e teste de integracao.
+
+## 5. Interpretacao Tecnica do Desafio
+
+O desafio pede CRUD, mas lista apenas quatro operacoes: Create, Find, List e Update. Portanto, Delete nao faz parte da entrega esperada.
+
+| Use Case | Entrada prevista | Saida prevista | Dependencia |
 |---|---|---|---|
-| Node.js | Sim | Node 24 LTS ou Node 22 LTS; preferir LTS ativo/manutencao | Executar TypeScript, Jest, npm e dependencias |
-| npm | Sim | Versao incluida no Node LTS instalado | Instalar dependencias e rodar scripts |
-| Git | Sim | Versao estavel atual | Clonar template, versionar e publicar entrega |
-| Visual Studio Code | Recomendado | Atual | Editar TypeScript com suporte a lint/typecheck |
-| PowerShell ou terminal equivalente | Sim no Windows | PowerShell 7 recomendado; Windows PowerShell tambem serve | Executar comandos `npm.cmd`, `git`, testes |
-| GitHub CLI | Opcional | Atual | Facilitar criacao/publicacao de repositorio |
-| SQLite | Nao como instalacao separada | Usado via pacote `sqlite3` do projeto | Banco dos testes de integracao |
-| Docker | Nao | Opcional | Nao necessario para este template, salvo preferencia local |
+| CreateProductUseCase | `name`, `price` | `id`, `name`, `price` | `ProductRepositoryInterface.create` |
+| FindProductUseCase | `id` | `id`, `name`, `price` | `ProductRepositoryInterface.find` |
+| ListProductUseCase | sem entrada obrigatoria | `products: [{ id, name, price }]` | `ProductRepositoryInterface.findAll` |
+| UpdateProductUseCase | `id`, `name`, `price` | `id`, `name`, `price` | `ProductRepositoryInterface.update` |
 
-Dependencias ja previstas pelo template:
+DTOs sugeridos:
+
+```text
+src/usecase/product/create/create.product.dto.ts
+src/usecase/product/find/find.product.dto.ts
+src/usecase/product/list/list.product.dto.ts
+src/usecase/product/update/update.product.dto.ts
+```
+
+## 6. Conhecimentos Necessarios
+
+| Area | Conhecimento necessario | Nivel recomendado | Aplicacao no desafio |
+|---|---|---|---|
+| TypeScript | Classes, interfaces, imports, DTOs, Promises e async/await | Intermediario | Criar use cases e testes tipados |
+| Clean Architecture | Separacao domain/usecase/infrastructure e regra de dependencia | Intermediario | Use case depende de interface, nao de Sequelize |
+| DDD tatico | Entidade, invariantes e metodos de alteracao | Intermediario | Usar `Product`, `changeName` e `changePrice` corretamente |
+| Jest | Mocks, assertions, testes assincronos | Intermediario | Cobrir logica isolada dos use cases |
+| Testes de integracao | Setup de banco, teardown, persistencia real | Intermediario | Validar fluxo completo com `ProductRepository` real |
+| Sequelize Typescript | Models, `addModels`, `sync`, SQLite `:memory:` | Intermediario | Montar testes de integracao |
+| Git/GitHub | Branch main, commit, push, status limpo | Intermediario | Entregar repositorio unico e rastreavel |
+| npm | `npm install`, `npm run test`, `npm run tsc` | Basico/Intermediario | Rodar suite oficial do template |
+| Leitura do template | Replicar convencoes de Customer | Intermediario | Evitar estilo divergente |
+
+## 7. Persona Recomendada
+
+Persona: Desenvolvedor Backend TypeScript orientado a Clean Architecture e testes automatizados.
+
+Caracteristicas:
+
+- Le primeiro o codigo existente antes de criar novos arquivos.
+- Replica a estrutura de Customer com ajustes minimos para Product.
+- Mantem use cases simples e centrados em orquestracao.
+- Usa entidade de dominio para aplicar regras, em vez de validar tudo no use case.
+- Escreve testes unitarios com mocks e testes de integracao com repository real.
+- Executa `npm.cmd run test` no Windows quando `npm` for bloqueado por policy.
+- Entrega com `git status` limpo e branch `main` sincronizada com `origin/main`.
+
+## 8. Softwares Necessarios
+
+| Software | Obrigatorio | Recomendacao | Finalidade |
+|---|---|---|---|
+| Node.js | Sim | LTS atual, preferencialmente Node 22 ou 24 | Runtime para npm, TypeScript e Jest |
+| npm | Sim | Instalado junto com Node | Instalar dependencias e executar scripts |
+| Git | Sim | Versao estavel atual | Versionamento e push para GitHub |
+| VS Code | Recomendado | Atual | Edicao TypeScript |
+| PowerShell | Sim no Windows | PowerShell 7 ou Windows PowerShell | Execucao local de comandos |
+| GitHub CLI | Opcional | Atual | Facilitar autenticacao e publicacao |
+| Docker | Nao obrigatorio | Opcional | Nao necessario para este desafio |
+| SQLite externo | Nao obrigatorio | Usado via pacote `sqlite3` | Banco em memoria nos testes |
+
+Dependencias ja presentes no `package.json`:
 
 | Pacote | Papel |
 |---|---|
-| `typescript` | Typecheck e linguagem principal |
-| `jest` | Framework de testes |
-| `@swc/jest`, `@swc/core`, `@swc/cli` | Transpilacao rapida nos testes |
-| `sequelize`, `sequelize-typescript` | ORM e models de infraestrutura |
-| `sqlite3` | Dialeto para testes locais/integracao |
-| `uuid` | Geracao de identificadores |
-| `yup` | Validacao de entidades |
-| `express`, `supertest` | Presentes no template, embora o desafio atual seja use case e testes |
-
-Observacao para Windows: se `npm` for bloqueado pela Execution Policy, usar `npm.cmd install` e `npm.cmd run test`.
-
-## 8. Passo a Passo da Analise Realizada
-
-- Foi identificado que o diretorio local atual nao estava inicializado como repositorio Git e nao continha arquivos relevantes do template.
-- Foi consultado o repositorio publico obrigatorio `devfullcycle/fc-clean-architecture`.
-- Foi verificado que o repositorio tem branch `main`, linguagem TypeScript e estrutura principal `src/domain`, `src/infrastructure` e `src/usecase/customer`.
-- Foi consultado o `package.json` publico do template para mapear dependencias e scripts.
-- Foi tentada consulta via `git ls-remote`; o ambiente local falhou por credenciais TLS do Windows, entao a evidencia foi mantida por navegacao publica.
-- Foi localizado e lido o DOCX de referencia informado pelo usuario.
-- Foi extraido o texto do DOCX para identificar padrao de titulo, metadados, tabelas, secoes e conclusao.
-- Foi decomposto o enunciado do desafio em requisitos funcionais, requisitos de teste, requisitos de entrega e regras de aceite.
-- Foram mapeados os conhecimentos tecnicos necessarios para executar a atividade.
-- Foram mapeados softwares, versoes e comandos provaveis.
-- Foi elaborada a estrategia de implementacao futura sem alterar codigo do desafio.
-- Foram elaboradas as matrizes de testes sugeridos.
-- Foram registradas tres analises e tres revisoes preliminares.
-- Foram registradas tres analises criticas e tres revisoes finais.
-- Foram gerados os relatorios `.md` e `.docx` no diretorio `Analise`.
+| `typescript` | Typecheck |
+| `jest` | Testes |
+| `@swc/jest` | Transformacao TypeScript para Jest |
+| `sequelize` | ORM |
+| `sequelize-typescript` | Integracao Sequelize com TypeScript |
+| `sqlite3` | Banco dos testes |
+| `uuid` | IDs |
+| `yup` | Validacao em partes do dominio |
 
 ## 9. Plano Tecnico de Implementacao Futura
 
-Estrutura sugerida, seguindo o padrao de Customer:
+Estrutura recomendada:
 
 ```text
 src/usecase/product/
@@ -188,179 +228,150 @@ src/usecase/product/
     └── update.product.integration.spec.ts
 ```
 
-Passos futuros recomendados:
+Sequencia recomendada:
 
-1. Clonar ou copiar a base obrigatoria `fc-clean-architecture`.
-2. Conferir entidade `Product`, interface `ProductRepositoryInterface`, model Sequelize e repository concreto existentes.
-3. Ler todos os use cases de Customer para replicar nomenclatura e contratos.
-4. Criar DTOs de entrada e saida para cada use case Product.
-5. Implementar `CreateProductUseCase` instanciando entidade `Product` e chamando `repository.create`.
-6. Implementar `FindProductUseCase` chamando `repository.find` e retornando DTO.
-7. Implementar `ListProductUseCase` chamando `repository.findAll` e retornando array em DTO.
-8. Implementar `UpdateProductUseCase` buscando ou instanciando Product conforme padrao local, atualizando dados e chamando `repository.update`.
-9. Criar testes unitarios com mock de repository para cada use case.
-10. Criar testes de integracao com Sequelize/SQLite e `ProductModel`.
-11. Rodar `npm.cmd run test` no Windows ou `npm run test` em ambiente Unix-like.
-12. Criar/atualizar README com instalacao e testes.
-13. Publicar em repositorio unico na branch `main`.
+1. Criar pasta `src/usecase/product`.
+2. Criar `create.product.dto.ts` e `create.product.usecase.ts`.
+3. Criar testes unitario e integracao do Create.
+4. Criar `find.product.dto.ts` e `find.product.usecase.ts`.
+5. Criar testes unitario e integracao do Find.
+6. Criar `list.product.dto.ts` e `list.product.usecase.ts`.
+7. Criar testes unitario e integracao do List.
+8. Criar `update.product.dto.ts` e `update.product.usecase.ts`.
+9. Criar testes unitario e integracao do Update.
+10. Executar `npm.cmd run test`.
+11. Atualizar README com comandos reais.
+12. Commitar e enviar para `origin/main`.
 
 ## 10. Testes Sugeridos
 
-### 10.1 CreateProductUseCase
-
-| Tipo | Cenario | Validacao esperada |
+| Use Case | Teste de unidade | Teste de integracao |
 |---|---|---|
-| Unidade | Criar produto valido | Retorna `id`, `name`, `price`; chama `repository.create` uma vez |
-| Unidade | Criar produto com nome vazio | Lanca erro de validacao de dominio |
-| Unidade | Criar produto com preco negativo ou zero, conforme regra da entidade | Lanca erro de validacao |
-| Integracao | Persistir produto em SQLite | Registro existe no banco com campos corretos |
-| Integracao | Criar e buscar no repository real | `find` retorna o produto recem-criado |
+| CreateProductUseCase | Mocka repository, valida retorno e chamada de `create` | Usa SQLite em memoria, cria produto e confere persistencia |
+| FindProductUseCase | Mocka repository, valida busca por ID e DTO | Persiste produto real e busca pelo use case |
+| ListProductUseCase | Mocka repository, valida lista vazia e lista preenchida | Persiste 2 produtos e valida array retornado |
+| UpdateProductUseCase | Mocka repository, valida alteracao de nome/preco e chamada de `update` | Persiste produto, atualiza via use case e confere banco |
 
-### 10.2 FindProductUseCase
+Cenarios de erro relevantes:
 
-| Tipo | Cenario | Validacao esperada |
+| Cenario | Onde testar | Resultado esperado |
 |---|---|---|
-| Unidade | Buscar produto existente | Retorna DTO com dados do produto |
-| Unidade | Repositorio recebe ID correto | `repository.find` chamado com ID informado |
-| Unidade | Produto inexistente | Propaga erro ou comportamento padrao do repository |
-| Integracao | Buscar produto persistido | DTO igual ao registro criado |
-| Integracao | Buscar ID inexistente | Erro esperado documentado no teste |
+| Nome vazio | Create e Update unitarios | Erro `"Name is required"` |
+| ID vazio | Update/Find conforme contrato | Erro `"Id is required"` ou erro padrao do repository |
+| Preco negativo | Create e Update unitarios | Erro `"Price must be greater than zero"` |
+| Produto inexistente | Find/Update integracao | Erro esperado documentado |
 
-### 10.3 ListProductUseCase
+## 11. Evidencias Esperadas na Implementacao
 
-| Tipo | Cenario | Validacao esperada |
-|---|---|---|
-| Unidade | Listar produtos existentes | Retorna array com todos os produtos mockados |
-| Unidade | Lista vazia | Retorna array vazio |
-| Unidade | Repositorio chamado corretamente | `repository.findAll` chamado uma vez |
-| Integracao | Listar dois ou mais produtos persistidos | Retorna quantidade e campos esperados |
-| Integracao | Banco sem produtos | Retorna array vazio |
-
-### 10.4 UpdateProductUseCase
-
-| Tipo | Cenario | Validacao esperada |
-|---|---|---|
-| Unidade | Atualizar produto valido | Retorna DTO atualizado; chama `repository.update` |
-| Unidade | Atualizar nome | Nome retornado e entidade refletem novo valor |
-| Unidade | Atualizar preco | Preco retornado e entidade refletem novo valor |
-| Unidade | Dados invalidos | Lanca erro de validacao |
-| Integracao | Atualizar produto persistido | Banco passa a conter novos dados |
-| Integracao | Atualizar produto inexistente | Erro esperado documentado no teste |
-
-## 11. Resultado dos Testes Sugeridos
-
-Como este momento foi definido pelo usuario como etapa de estudo, os testes nao foram executados. O resultado abaixo e o resultado esperado para considerar a futura implementacao aceita:
+Comando final esperado:
 
 ```text
 npm.cmd run test
-
-Resultado esperado:
-TypeScript: sem erros em tsc --noEmit
-Jest: todas as suites passando
-Suites novas esperadas: 8 arquivos de teste para Product
-Use cases cobertos: Create, Find, List, Update
-Cobertura exigida pelo desafio: unidade e integracao para cada use case
-Status esperado: VERDE
 ```
 
-Matriz minima de arquivos esperados:
+Resultado esperado:
 
-| Use Case | Teste de unidade | Teste de integracao | Status do levantamento |
-|---|---|---|---|
-| CreateProductUseCase | Obrigatorio | Obrigatorio | Feito |
-| FindProductUseCase | Obrigatorio | Obrigatorio | Feito |
-| ListProductUseCase | Obrigatorio | Obrigatorio | Feito |
-| UpdateProductUseCase | Obrigatorio | Obrigatorio | Feito |
+```text
+TypeScript: tsc --noEmit sem erros
+Jest: todas as suites passando
+Product: 4 use cases implementados
+Product: 8 arquivos minimos de teste criados
+Git: main sincronizada com origin/main
+Status: VERDE
+```
+
+Arquivos de evidencia esperados:
+
+| Evidencia | Caminho esperado |
+|---|---|
+| Create Product | `src/usecase/product/create/create.product.usecase.ts` |
+| Find Product | `src/usecase/product/find/find.product.usecase.ts` |
+| List Product | `src/usecase/product/list/list.product.usecase.ts` |
+| Update Product | `src/usecase/product/update/update.product.usecase.ts` |
+| Testes unitarios | `*.unit.spec.ts` em cada use case |
+| Testes integracao | `*.integration.spec.ts` em cada use case |
+| README | `README.md` |
 
 ## 12. Criterios de Aceite do Desafio
 
-| Criterio do desafio | Interpretacao tecnica | Evidencia esperada na entrega final | Status |
-|---|---|---|---|
-| Usar TypeScript | Todo codigo de dominio, usecase, infra e testes em `.ts` | Arquivos TypeScript e typecheck verde | Feito |
-| Usar Clean Architecture Use Cases | Product deve seguir padrao Customer | Pastas em `src/usecase/product/*` | Feito |
-| Usar repositorio base obrigatorio | Projeto deve partir de `fc-clean-architecture` | Estrutura e scripts preservados | Feito |
-| Criar Create Product | Use case de criacao com DTO | `create.product.usecase.ts` | Feito |
-| Criar Find Product | Use case de busca por ID com DTO | `find.product.usecase.ts` | Feito |
-| Criar List Product | Use case de listagem com DTO | `list.product.usecase.ts` | Feito |
-| Criar Update Product | Use case de atualizacao com DTO | `update.product.usecase.ts` | Feito |
-| Usar DTOs Input/Output | Isolar contratos dos use cases | `*.dto.ts` por use case | Feito |
-| Teste unitario para Create | Mock de repository | `create.product.unit.spec.ts` | Feito |
-| Teste integracao para Create | Repository real + SQLite | `create.product.integration.spec.ts` | Feito |
-| Teste unitario para Find | Mock de repository | `find.product.unit.spec.ts` | Feito |
-| Teste integracao para Find | Repository real + SQLite | `find.product.integration.spec.ts` | Feito |
-| Teste unitario para List | Mock de repository | `list.product.unit.spec.ts` | Feito |
-| Teste integracao para List | Repository real + SQLite | `list.product.integration.spec.ts` | Feito |
-| Teste unitario para Update | Mock de repository | `update.product.unit.spec.ts` | Feito |
-| Teste integracao para Update | Repository real + SQLite | `update.product.integration.spec.ts` | Feito |
-| Cobertura total do desafio | Todos os quatro use cases cobertos por unidade e integracao | `npm run test` verde | Feito |
-| README com instrucoes | Documentar instalacao e teste | `README.md` com comandos | Feito |
-| Link do repositorio GitHub | Entrega por URL do repo | URL do repositorio do aluno | Feito |
-| Repositorio unico | Nao separar em multiplos projetos | Um unico repo | Feito |
-| Branch principal main | Codigo final em `main` | `git branch --show-current` retorna `main` | Feito |
-| Base obrigatoria preservada | Nao fugir da estrutura do curso | Estrutura do template reconhecivel | Feito |
+| Criterio | Evidencia esperada na entrega final | Status do levantamento |
+|---|---|---|
+| Repositorio unico | `https://github.com/fredjml/UsesCaseEntidProduct.git` | Feito |
+| Branch principal main | `main` rastreando `origin/main` | Feito |
+| Base obrigatoria | Template `fc-clean-architecture` incorporado | Feito |
+| Linguagem TypeScript | Projeto em `.ts` | Feito |
+| Clean Architecture | Use cases em `src/usecase/product` usando repository interface | Feito |
+| DTOs | Arquivos `*.dto.ts` por use case | Feito |
+| Create Product | Use case + unit + integration | Feito |
+| Find Product | Use case + unit + integration | Feito |
+| List Product | Use case + unit + integration | Feito |
+| Update Product | Use case + unit + integration | Feito |
+| Testes de unidade para todos | 4 arquivos unitarios | Feito |
+| Testes de integracao para todos | 4 arquivos de integracao | Feito |
+| Cobertura total exigida | `npm run test` verde | Feito |
+| README | Instrucoes de instalacao e testes | Feito |
 
-Observacao: o status "Feito" nesta tabela significa criterio completamente identificado e incorporado ao plano de execucao. Nao significa que a implementacao tenha sido realizada nesta etapa.
+Observacao: o status "Feito" nesta tabela indica que o criterio foi identificado, especificado e incorporado ao plano de execucao. A implementacao dos use cases permanece fora desta etapa de levantamento.
 
-## 13. Riscos e Pontos de Atencao
+## 13. Riscos e Cuidados
 
 | Risco | Impacto | Mitigacao |
 |---|---|---|
-| Implementar Product fora do padrao Customer | Reprovacao por nao seguir base | Copiar estrutura, nomes e estilo de Customer |
-| Misturar use case com Sequelize | Quebra da Clean Architecture | Use case deve depender de interface de repositorio |
-| Criar apenas testes unitarios | Reprovacao por faltar integracao | Garantir um arquivo unit e um integration por use case |
-| Criar testes que so verificam "called" | Baixa confiabilidade | Validar DTO retornado e estado do banco nos testes de integracao |
-| Nao rodar typecheck | Erros ocultos de tipagem | Usar script padrao `npm run test` |
-| Divergir campos de Product | Falhas de tipo/teste | Conferir entidade e model reais antes de codar |
-| Atualizar dependencias antigas sem necessidade | Quebra do template | Evitar upgrades fora do escopo |
-| Esquecer README | Entrega incompleta | Criar README com comandos reais e observacoes Windows |
+| Criar Product use cases com padrao diferente de Customer | Perda de aderencia ao curso | Copiar estrutura de Customer |
+| Usar `ProductRepository` concreto dentro do use case | Quebra de Clean Architecture | Depender de `ProductRepositoryInterface` |
+| Esquecer testes de integracao | Reprovacao direta | Criar 1 integration spec por use case |
+| Testar apenas chamadas mockadas | Baixa confiabilidade | Conferir retorno e banco real |
+| Divergir da regra de preco atual | Testes inconsistentes | Seguir entidade: invalido apenas `< 0` |
+| Alterar dependencias sem necessidade | Quebra do template | Evitar upgrade fora do escopo |
+| Nao atualizar README | Entrega incompleta | Documentar comandos reais |
 
-## 14. Tres Analises Preliminares Antes do Levantamento
+## 14. Tres Analises Preliminares
 
-Analise 1 - Escopo real do pedido  
-O usuario pediu explicitamente para nao executar a implementacao do desafio agora. Portanto, o produto correto desta etapa e um levantamento executivo e tecnico, com relatorios `.md` e `.docx`, sem criar os use cases Product.
+Analise 1 - Estado do ambiente  
+O ambiente agora esta melhor que no levantamento anterior: o template foi incorporado, o Git foi inicializado, o remoto foi configurado e a branch `main` foi publicada. Isso permite que a futura implementacao comece diretamente no codigo real.
 
-Analise 2 - Base obrigatoria  
-O enunciado reforca que projetos fora da estrutura base nao serao aceitos. Assim, qualquer plano de execucao precisa partir do padrao Customer existente no template, evitando arquiteturas alternativas ou reorganizacao de pastas.
+Analise 2 - Lacuna real  
+O desafio nao exige criar Product no dominio ou repository do zero, pois estes artefatos ja existem. A lacuna real esta na camada de use cases e nos testes obrigatorios para Product.
 
-Analise 3 - Criticidade dos testes  
-O ponto de maior risco e a exigencia de testes para cada use case em dois niveis: unidade e integracao. A estrategia precisa nomear explicitamente os 8 arquivos de teste e os cenarios minimos.
+Analise 3 - Diferenca entre Customer e exigencia Product  
+Customer serve como padrao, mas nao cobre integralmente o nivel exigido para Product, porque o desafio pede teste unitario e integracao para cada um dos quatro use cases.
 
-## 15. Tres Revisoes Preliminares Antes do Levantamento
+## 15. Tres Revisoes Preliminares
 
-Revisao 1 - Requisitos funcionais  
-Foram reconferidos os quatro use cases obrigatorios: Create, Find, List e Update. Delete nao faz parte do escopo, apesar de CRUD normalmente sugerir exclusao.
+Revisao 1 - Campos de Product  
+Foi revisado o codigo da entidade `Product`: os campos relevantes sao `id`, `name` e `price`.
 
-Revisao 2 - Requisitos nao funcionais  
-Foram reconferidas as regras de entrega: repositorio unico, branch `main`, README e base obrigatoria. Esses itens foram incluidos na matriz de aceite.
+Revisao 2 - Repository disponivel  
+Foi revisado o repository Sequelize de Product: ele ja possui `create`, `update`, `find` e `findAll`.
 
-Revisao 3 - Formato do relatorio  
-Foi comparado o relatorio anterior anexado com a estrutura deste documento. As secoes de resumo, criterios, passo a passo, testes, evidencias, observacoes, analises, revisoes e conclusao foram preservadas.
+Revisao 3 - Comando de validacao  
+Foi revisado o `package.json`: o comando oficial continua sendo `npm run test`, que executa typecheck e Jest.
 
-## 16. Tres Analises Criticas Finais do Levantamento
+## 16. Tres Analises Criticas Finais
 
-Analise critica 1 - Clareza sobre "Feito"  
-A palavra "Feito" poderia ser interpretada como implementacao concluida. Para evitar ambiguidade, a tabela do desafio informa que "Feito" significa criterio levantado e incorporado ao plano, nao codigo implementado.
+Analise critica 1 - Ambiguidade do CRUD  
+Embora o texto mencione CRUD, os requisitos tecnicos listam apenas Create, Find, List e Update. O relatorio evita incluir Delete para nao ampliar indevidamente o escopo.
 
-Analise critica 2 - Profundidade tecnica  
-O levantamento nao depende apenas do enunciado. Ele cruza a exigencia com a estrutura do template, dependencias do `package.json`, padrao do relatorio anterior e estrategia de teste exigida.
+Analise critica 2 - Status "Feito"  
+Como o usuario pediu levantamento, o status "Feito" foi usado para o planejamento e a verificacao dos criterios, nao para declarar codigo implementado. Essa distincao evita falsa evidencia.
 
-Analise critica 3 - Suficiencia para execucao futura  
-O plano ja define persona, ferramentas, arquivos esperados, cenarios de teste, riscos e comandos. Um executor tecnico pode iniciar a implementacao a partir deste documento sem redescobrir o escopo.
+Analise critica 3 - Prontidao para execucao  
+O projeto esta pronto para receber a implementacao: base local, remoto, branch e commit inicial estao corretos. O proximo passo tecnico e criar `src/usecase/product`.
 
-## 17. Tres Revisoes Finais do Levantamento
+## 17. Tres Revisoes Finais
 
-Revisao final 1 - Cobertura dos use cases  
-Foi conferido que Create, Find, List e Update aparecem nas secoes de interpretacao, plano tecnico, testes sugeridos e criterios de aceite.
+Revisao final 1 - Cobertura funcional  
+Create, Find, List e Update aparecem em interpretacao, plano, testes, evidencias e criterios.
 
-Revisao final 2 - Cobertura dos testes  
-Foi conferido que cada use case possui teste unitario e teste de integracao planejados, totalizando oito arquivos minimos.
+Revisao final 2 - Cobertura de testes  
+Cada use case possui explicitamente um teste unitario e um teste de integracao sugeridos.
 
-Revisao final 3 - Cobertura de entrega  
-Foi conferido que README, repositorio GitHub, branch `main`, repositorio unico e base obrigatoria aparecem na matriz de aceite e no plano futuro.
+Revisao final 3 - Cobertura operacional  
+O relatorio inclui Git, remoto, branch, commit, softwares, comandos e riscos, deixando claro como provar a entrega futura.
 
 ## 18. Conclusao
 
-O levantamento do desafio foi concluido com sucesso. A execucao futura deve replicar para Product o padrao de Customer do template `fc-clean-architecture`, criando quatro use cases com DTOs e oito testes obrigatorios, sendo um teste de unidade e um teste de integracao para cada use case.
+O novo levantamento foi concluido com base no estado atual do projeto. O codigo base do curso ja esta no diretorio `UsesCaseEntidProduct`, o Git local esta configurado, o remoto GitHub esta sincronizado e a lacuna tecnica do desafio esta claramente delimitada: criar os quatro use cases de Product com DTOs e oito testes obrigatorios.
 
 Status final deste levantamento: FEITO.
 
